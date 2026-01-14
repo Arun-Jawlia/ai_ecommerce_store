@@ -1,6 +1,8 @@
 import pkg from "pg";
 const { Client } = pkg;
 
+console.log(process.env.DB_USER);
+
 const database = new Client({
   user: process.env.DB_USER,
   host: process.env.DB_HOST,

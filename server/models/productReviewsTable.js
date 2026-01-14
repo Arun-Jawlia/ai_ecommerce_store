@@ -1,3 +1,5 @@
+import database from "../database/db.js";
+
 export async function createProductReviewsTable() {
   try {
     const query = `     
