@@ -4,9 +4,10 @@ import cors from "cors";
 import { config } from "dotenv";
 import cookieParser from "cookie-parser";
 import fileUpload from "express-fileupload";
+import { createTables } from "./utils/createTable.js";
 
 const app = express();
-config({ path: "./config/config.env" });
+config()
 app.use(
   cors({
     origin: [process.env.FRONTEND_URL, process.env.DASHBOARD_URL],
@@ -24,5 +25,7 @@ app.use(
     useTempFiles: true,
   })
 );
+
+createTables()
 
 export default app;

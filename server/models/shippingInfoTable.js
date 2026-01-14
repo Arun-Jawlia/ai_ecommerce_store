@@ -1,4 +1,5 @@
-import { database } from "../database/database.js";
+import database from "../database/db.js";
+
 
 export async function createShippingInfoTable() {
   try {
