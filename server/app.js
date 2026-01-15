@@ -5,9 +5,13 @@ import { config } from "dotenv";
 import cookieParser from "cookie-parser";
 import fileUpload from "express-fileupload";
 import { createTables } from "./utils/createTable.js";
+import { errorMiddleware } from "./middlewares/errorMiddleware.js";
+import authRouter from "./routes/authRoutes.js";
 
 const app = express();
-config()
+config({
+  path: "./config/.env"
+})
 app.use(
   cors({
     origin: [process.env.FRONTEND_URL, process.env.DASHBOARD_URL],
@@ -28,4 +32,8 @@ app.use(
 
 createTables()
 
+
+app.use('/api/v1/auth', authRouter)
+
+app.use(errorMiddleware)
 export default app;
