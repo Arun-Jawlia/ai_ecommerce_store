@@ -1,7 +1,10 @@
 import pkg from "pg";
 const { Client } = pkg;
+import { config } from "dotenv";
 
-console.log(process.env.DB_USER);
+config({
+  path: "./config/.env",
+});
 
 const database = new Client({
   user: process.env.DB_USER,
