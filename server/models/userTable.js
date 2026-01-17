@@ -19,8 +19,8 @@ export async function createUserTable() {
 
         avatar JSONB DEFAULT NULL,
 
-        reset_password_token TEXT,
-        reset_password_expire TIMESTAMPTZ,
+        reset_password_token TEXT DEFAULT NULL,
+        reset_password_expire TIMESTAMPTZ DEFAULT NULL,
 
         created_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP
       );
