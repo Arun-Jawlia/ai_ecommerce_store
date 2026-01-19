@@ -1,3 +1,5 @@
+import cleanupUploads from "../utils/cleanupUploads.js";
+
 class ErrorHandler extends Error {
   constructor(message, statusCode) {
     super(message);
@@ -6,6 +8,8 @@ class ErrorHandler extends Error {
 }
 
 export const errorMiddleware = (err, req, res, next) => {
+  console.error(err);
+  cleanupUploads(req);
   err.statusCode = err.statusCode || 500;
   err.message = err.message || "Internal Server Error";
 

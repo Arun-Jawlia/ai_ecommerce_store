@@ -7,6 +7,7 @@ import fileUpload from "express-fileupload";
 import { createTables } from "./utils/createTable.js";
 import { errorMiddleware } from "./middlewares/errorMiddleware.js";
 import authRouter from "./routes/authRoutes.js";
+import productRoute from './routes/productRoutes.js';
 
 const app = express();
 config({
@@ -34,6 +35,7 @@ createTables()
 
 
 app.use('/api/v1/auth', authRouter)
+app.use('/api/v1/product', productRoute)
 
 app.use(errorMiddleware)
 export default app;
